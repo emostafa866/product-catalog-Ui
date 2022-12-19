@@ -1,0 +1,11 @@
+<div class="box mt-5">
+    <div class="my-2 w-25">
+        <app-select [title]="'Categories'" [data]="categories" (selectedValue)="filterCategory($event)"></app-select>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-sm-12" *ngFor="let product of products" >
+            <product-card [data]="product" (item)="addToCart($event)"></product-card>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,25 @@
+nav{
+    background: linear-gradient(to right,#4158D0,#FFCC70);
+    color: #FFF;
+    .content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        ul{
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            width: 25%;
+            margin: 0;
+            li{
+                cursor: pointer;
+                font-size: 18px;
+                color: #FFF;
+                text-decoration: none;
+                margin: 5px;    
+                
+            }
+        }
+    }
+}

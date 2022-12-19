@@ -1,0 +1,26 @@
+    <div class="body">
+        <h2 class="text-center mt-5"> Sign Up</h2>
+        <form #f="ngForm" (ngSubmit)="signUp(f)">
+            <input ngModel name="firstname" #firstName="ngModel" type="text" class="form-control" placeholder="Firstname" required>
+            <div id="validation" class="alert alert-danger" *ngIf="firstName.invalid && firstName.touched"> First Name is required </div>
+
+            <input ngModel name="lasttname" #lastName="ngModel" type="text" class="form-control" placeholder="Lastname"required>
+            <div id="validation" class="alert alert-danger" *ngIf="lastName.invalid && lastName.touched"> Last Name is required </div>
+
+            <input ngModel name="emailtname" #email="ngModel" type="email" class="form-control" placeholder="Email"required email>
+            <div id="validation" class="alert alert-danger" *ngIf=" email.touched && email.errors?.['required']"> Email is required </div>
+            <div id="validation" class="alert alert-danger" *ngIf=" email.touched && email.errors?.['email']"> wrong email format</div>
+
+
+
+            <input ngModel name="password" #password="ngModel" type="password" class="form-control" placeholder="Password"required minlength="6">
+            <div id="validation" class="alert alert-danger" *ngIf="password.touched && password.errors?.['required']"> password is required </div>
+            <div id="validation" class="alert alert-danger" *ngIf=" password.touched && password.errors?.['minlength']"> password should be 6 at least 6 charcter</div>
+
+            <input ngModel name="confirmPassword" type="password" #confirmPassword="ngModel" class="form-control" placeholder="Confirm Password"required>
+            <div id="validation" class="alert alert-danger" *ngIf="confirmPassword.invalid && confirmPassword.touched"> password confirmation required </div>
+            <div id="validation" class="alert alert-danger" *ngIf="confirmPassword.value !== password.value && confirmPassword.touched"> not equal passwords </div>
+
+            <button class="btn btn-primary" [disabled]="f.invalid || password.value!==confirmPassword.value">Create Account</button>
+        </form>
+    </div>

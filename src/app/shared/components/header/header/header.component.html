@@ -1,0 +1,16 @@
+<nav>
+    <div class="container">
+        <div class="content">
+            <h2 class="logo">Product Catalog</h2>
+            <ul>
+                <li *ngIf="sharedService.isLogged()" routerLink="/orders">Orders</li>
+                <li  routerLink="/products/add">AddProduct</li>
+                <li *ngIf="sharedService.isLogged()" routerLink="/products">Products</li>
+                <li *ngIf="sharedService.isLogged()"  routerLink="/cart">Cart</li>
+                <li *ngIf="!sharedService.isLogged()" routerLink="/auth/signup">SignUp</li>
+                <li *ngIf="!sharedService.isLogged()" routerLink="/auth/login">Login</li>
+                <li *ngIf="sharedService.isLogged()" (click)="logOut()">LogOut</li>
+            </ul>
+        </div>
+    </div>
+</nav>

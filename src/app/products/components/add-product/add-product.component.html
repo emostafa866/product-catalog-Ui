@@ -1,0 +1,43 @@
+<div class="container mt-3 mb-5">
+    <form #f="ngForm" (ngSubmit)="addProduct(f)">
+        <div class="form-group">
+            <label for="formGroupExampleInput">Name in english</label>
+            <input ngModel type="text" class="form-control" name="nameEn" #nameEn="ngModel" placeholder="Product Name">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Name in arabic</label>
+            <input ngModel type="text" class="form-control" name="nameAr" #nameAr="ngModel" placeholder="Product Name">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Price</label>
+            <input ngModel type="text" class="form-control" name="price" #price="ngModel" placeholder="Product Price">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Category</label>
+            <app-select [title]="'Categories'" [data]="categories"></app-select>
+            <input ngModel type="text" class="form-control" name="category" #category="ngModel" placeholder="Category">
+        </div>
+        <br>
+        <div class="custom-file">
+            <label for="image">image</label>
+            <img src="{{base64}}" alt="">
+            <input ngModel type="file" class="form-control" name="image" #image="ngModel" (change)="getImagePath($event)">
+        </div>
+        <br>
+        <div>
+            <label for="formGroupExampleInput2">Amount</label>
+            <input ngModel type="number" class="form-control" name="amount" #amount="ngModel" min="1">
+
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <textarea ngModel class="form-control" name="description" #description="ngModel" rows="3"></textarea>
+        </div>
+        <br>
+        <button style="background-color: blueviolet;" class="btn btn-success">Add Product</button>
+    </form>
+</div>
